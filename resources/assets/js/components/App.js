@@ -41,9 +41,7 @@ class App extends Component {
         return this.state.tasks.map(task => (
             <div key={task.id} className="media">
                 <div className="media-body">
-                    <div>
-                        {task.name}
-                    </div>
+                    <div>{task.name}</div>
                 </div>
             </div>
         ));
@@ -51,7 +49,11 @@ class App extends Component {
 
     //get all the tasks from the backend
     getTasks() {
-        axios.get('/tasks').then(response => console.log(response));
+        axios.get('/tasks').then(response =>
+            this.setState({
+                tasks: [...response.data.tasks]
+            })
+        );
     }
 
     // react lifecycle method

@@ -55849,8 +55849,12 @@ var App = function (_Component) {
     }, {
         key: 'getTasks',
         value: function getTasks() {
+            var _this3 = this;
+
             axios.get('/tasks').then(function (response) {
-                return console.log(response);
+                return _this3.setState({
+                    tasks: [].concat(_toConsumableArray(response.data.tasks))
+                });
             });
         }
 

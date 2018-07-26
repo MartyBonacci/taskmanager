@@ -55786,8 +55786,10 @@ var App = function (_Component) {
         // bind
         _this.handleChange = _this.handleChange.bind(_this);
         _this.handleSubmit = _this.handleSubmit.bind(_this);
+        _this.renderTasks = _this.renderTasks.bind(_this);
         return _this;
     }
+
     // handle change
 
 
@@ -55799,6 +55801,7 @@ var App = function (_Component) {
             });
             // console.log(e.target.value);
         }
+
         //handle submit
 
     }, {
@@ -55816,6 +55819,28 @@ var App = function (_Component) {
                     tasks: [response.data].concat(_toConsumableArray(_this2.state.tasks)),
                     name: ''
                 });
+            });
+        }
+
+        // render tasks
+
+    }, {
+        key: 'renderTasks',
+        value: function renderTasks() {
+            return this.state.tasks.map(function (task) {
+                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'div',
+                    { key: task.id, className: 'media' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'div',
+                        { className: 'media-body' },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                            'div',
+                            null,
+                            task.name
+                        )
+                    )
+                );
             });
         }
     }, {
@@ -55862,7 +55887,9 @@ var App = function (_Component) {
                                         { type: 'submit', className: 'btn btn-primary' },
                                         'Create Task'
                                     )
-                                )
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+                                this.renderTasks()
                             )
                         )
                     )

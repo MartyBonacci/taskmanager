@@ -10,7 +10,9 @@ class App extends Component {
         // bind
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.renderTasks = this.renderTasks.bind(this);
     }
+
     // handle change
     handleChange(e) {
         this.setState({
@@ -18,19 +20,33 @@ class App extends Component {
         })
         // console.log(e.target.value);
     }
+
     //handle submit
     handleSubmit(e) {
         e.preventDefault();
-            axios.post('/tasks', {
-                name: this.state.name
-            }).then(response => {
-                // console.log('from handle submit ', response);
-                // set state
-                this.setState({
-                    tasks: [response.data, ...this.state.tasks],
-                    name: ''
-                });
+        axios.post('/tasks', {
+            name: this.state.name
+        }).then(response => {
+            // console.log('from handle submit ', response);
+            // set state
+            this.setState({
+                tasks: [response.data, ...this.state.tasks],
+                name: ''
             });
+        });
+    }
+
+    // render tasks
+    renderTasks() {
+        return this.state.tasks.map(task => (
+            <div key={task.id} className="media">
+                <div className="media-body">
+                    <div>
+                        {task.name}
+                    </div>
+                </div>
+            </div>
+        ));
     }
 
     render() {
@@ -58,6 +74,8 @@ class App extends Component {
                                         Create Task
                                     </button>
                                 </form>
+                                <hr/>
+                                {this.renderTasks()}
                             </div>
                         </div>
                     </div>

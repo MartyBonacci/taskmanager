@@ -55772,51 +55772,73 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
     _inherits(App, _Component);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = {
+            name: '',
+            tasks: []
+        };
+        // bind
+        _this.handleChange = _this.handleChange.bind(_this);
+        return _this;
     }
+    // handle change
+
 
     _createClass(App, [{
-        key: "render",
+        key: 'handleChange',
+        value: function handleChange(e) {
+            this.setState({
+                name: e.target.value
+            });
+            // console.log(e.target.value);
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "container" },
+                'div',
+                { className: 'container' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "row justify-content-center" },
+                    'div',
+                    { className: 'row justify-content-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "col-md-8" },
+                        'div',
+                        { className: 'col-md-8' },
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            "div",
-                            { className: "card" },
+                            'div',
+                            { className: 'card' },
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "div",
-                                { className: "card-header" },
-                                "Example Component"
+                                'div',
+                                { className: 'card-header' },
+                                'Example Component'
                             ),
                             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                "div",
-                                { className: "card-body" },
+                                'div',
+                                { className: 'card-body' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    "form",
+                                    'form',
                                     null,
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "div",
-                                        { className: "form-group" },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("textarea", { className: "form-control",
-                                            rows: "5",
-                                            placeholder: "Create a new task",
+                                        'div',
+                                        { className: 'form-group' },
+                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+                                            onChange: this.handleChange,
+                                            value: this.state.name,
+                                            className: 'form-control',
+                                            rows: '5',
+                                            maxLength: '255',
+                                            placeholder: 'Create a new task',
                                             required: true
                                         })
                                     ),
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        "button",
-                                        { type: "submit", className: "btn btn-primary" },
-                                        "Create Task"
+                                        'button',
+                                        { type: 'submit', className: 'btn btn-primary' },
+                                        'Create Task'
                                     )
                                 )
                             )

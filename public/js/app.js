@@ -55783,6 +55783,7 @@ var App = function (_Component) {
         };
         // bind
         _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
         return _this;
     }
     // handle change
@@ -55795,6 +55796,18 @@ var App = function (_Component) {
                 name: e.target.value
             });
             // console.log(e.target.value);
+        }
+        //handle submit
+
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(e) {
+            e.preventDefault();
+            axios.post('/tasks', {
+                name: this.state.name
+            }).then(function (response) {
+                console.log('from handle submit ', response);
+            });
         }
     }, {
         key: 'render',
@@ -55821,7 +55834,7 @@ var App = function (_Component) {
                                 { className: 'card-body' },
                                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                     'form',
-                                    null,
+                                    { onSubmit: this.handleSubmit },
                                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                                         'div',
                                         { className: 'form-group' },

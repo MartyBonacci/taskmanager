@@ -9,6 +9,7 @@ class App extends Component {
         };
         // bind
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     // handle change
     handleChange(e) {
@@ -16,6 +17,15 @@ class App extends Component {
             name: e.target.value
         })
         // console.log(e.target.value);
+    }
+    //handle submit
+    handleSubmit(e) {
+        e.preventDefault();
+            axios.post('/tasks', {
+                name: this.state.name
+            }).then(response => {
+                console.log('from handle submit ', response);
+            });
     }
 
     render() {
@@ -27,7 +37,7 @@ class App extends Component {
                             <div className="card-header">Example Component</div>
 
                             <div className="card-body">
-                                <form>
+                                <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <textarea
                                             onChange={this.handleChange}

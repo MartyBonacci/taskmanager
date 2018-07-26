@@ -55843,6 +55843,24 @@ var App = function (_Component) {
                 );
             });
         }
+
+        //get all the tasks from the backend
+
+    }, {
+        key: 'getTasks',
+        value: function getTasks() {
+            axios.get('/tasks').then(function (response) {
+                return console.log(response);
+            });
+        }
+
+        // react lifecycle method
+
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.getTasks();
+        }
     }, {
         key: 'render',
         value: function render() {

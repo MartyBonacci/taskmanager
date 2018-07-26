@@ -49,6 +49,16 @@ class App extends Component {
         ));
     }
 
+    //get all the tasks from the backend
+    getTasks() {
+        axios.get('/tasks').then(response => console.log(response));
+    }
+
+    // react lifecycle method
+    componentWillMount() {
+        this.getTasks()
+    }
+
     render() {
         return (
             <div className="container">

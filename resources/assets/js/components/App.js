@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class App extends Component {
     render() {
@@ -10,7 +10,19 @@ class App extends Component {
                             <div className="card-header">Example Component</div>
 
                             <div className="card-body">
-                                I'm an example component!
+                                <form>
+
+                                    <div className="form-group">
+                                        <textarea className="form-control"
+                                                  rows="5"
+                                                  placeholder="Create a new task"
+                                                  required
+                                        />
+                                    </div>
+                                    <button type="submit" className="btn btn-primary">
+                                        Create Task
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>

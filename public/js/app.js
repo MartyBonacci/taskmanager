@@ -57384,6 +57384,16 @@ var App = function (_Component) {
 							'div',
 							null,
 							task.name,
+							' ',
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'span',
+								{ className: 'text-muted' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+								'by ',
+								task.user.name,
+								' | ',
+								task.updated_at.split(' ').slice(1).join(' ')
+							),
 							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
 								{ to: '/' + task.id + '/edit', className: 'btn btn-sm btn-success float-right' },
@@ -57399,7 +57409,8 @@ var App = function (_Component) {
 								},
 								'Delete'
 							)
-						)
+						),
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null)
 					)
 				);
 			});

@@ -45,8 +45,11 @@ class App extends Component {
 		return this.state.tasks.map(task => (
 			<div key={task.id} className="media">
 				<div className="media-body">
-					<div>{task.name}
-
+					<div>{task.name}{' '}
+						<span className="text-muted">
+						<br/>
+						by {task.user.name} | {task.updated_at.split(' ').slice(1).join(' ')}
+					</span>
 						<Link to={`/${task.id}/edit`} className="btn btn-sm btn-success float-right">Update</Link>
 
 						<button
@@ -56,6 +59,7 @@ class App extends Component {
 							Delete
 						</button>
 					</div>
+					<hr/>
 				</div>
 			</div>
 		));

@@ -76,7 +76,7 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        $task = Task::findOrFail(id);
+        $task = Task::findOrFail($id);
         return response()->json([
         	'task' => $task,
 		  ]);

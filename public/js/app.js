@@ -57300,6 +57300,7 @@ module.exports = camelize;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(76);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__TaskEdit__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__TaskEdit___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__TaskEdit__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
@@ -57315,188 +57316,188 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var App = function (_Component) {
-    _inherits(App, _Component);
+	_inherits(App, _Component);
 
-    function App(props) {
-        _classCallCheck(this, App);
+	function App(props) {
+		_classCallCheck(this, App);
 
-        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-        _this.state = {
-            name: '',
-            tasks: []
-        };
-        // bind
-        _this.handleChange = _this.handleChange.bind(_this);
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
-        _this.renderTasks = _this.renderTasks.bind(_this);
-        _this.handleDelete = _this.handleDelete.bind(_this);
-        return _this;
-    }
+		_this.state = {
+			name: '',
+			tasks: []
+		};
+		// bind
+		_this.handleChange = _this.handleChange.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		_this.renderTasks = _this.renderTasks.bind(_this);
+		_this.handleDelete = _this.handleDelete.bind(_this);
+		return _this;
+	}
 
-    // handle change
+	// handle change
 
 
-    _createClass(App, [{
-        key: 'handleChange',
-        value: function handleChange(e) {
-            this.setState({
-                name: e.target.value
-            });
-            // console.log(e.target.value);
-        }
+	_createClass(App, [{
+		key: 'handleChange',
+		value: function handleChange(e) {
+			this.setState({
+				name: e.target.value
+			});
+			// console.log(e.target.value);
+		}
 
-        //handle submit
+		//handle submit
 
-    }, {
-        key: 'handleSubmit',
-        value: function handleSubmit(e) {
-            var _this2 = this;
+	}, {
+		key: 'handleSubmit',
+		value: function handleSubmit(e) {
+			var _this2 = this;
 
-            e.preventDefault();
-            axios.post('/tasks', {
-                name: this.state.name
-            }).then(function (response) {
-                // console.log('from handle submit ', response);
-                // set state
-                _this2.setState({
-                    tasks: [response.data].concat(_toConsumableArray(_this2.state.tasks)),
-                    name: ''
-                });
-            });
-        }
+			e.preventDefault();
+			axios.post('/tasks', {
+				name: this.state.name
+			}).then(function (response) {
+				// console.log('from handle submit ', response);
+				// set state
+				_this2.setState({
+					tasks: [response.data].concat(_toConsumableArray(_this2.state.tasks)),
+					name: ''
+				});
+			});
+		}
 
-        // render tasks
+		// render tasks
 
-    }, {
-        key: 'renderTasks',
-        value: function renderTasks() {
-            var _this3 = this;
+	}, {
+		key: 'renderTasks',
+		value: function renderTasks() {
+			var _this3 = this;
 
-            return this.state.tasks.map(function (task) {
-                return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { key: task.id, className: 'media' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'media-body' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            null,
-                            task.name,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                                { to: '/' + task.id + '/edit', className: 'btn btn-sm btn-success float-right' },
-                                'Update'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'button',
-                                {
-                                    onClick: function onClick() {
-                                        return _this3.handleDelete(task.id);
-                                    },
-                                    className: 'btn btn-sm btn-warning float-right'
-                                },
-                                'Delete'
-                            )
-                        )
-                    )
-                );
-            });
-        }
+			return this.state.tasks.map(function (task) {
+				return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ key: task.id, className: 'media' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'media-body' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							null,
+							task.name,
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+								{ to: '/' + task.id + '/edit', className: 'btn btn-sm btn-success float-right' },
+								'Update'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'button',
+								{
+									onClick: function onClick() {
+										return _this3.handleDelete(task.id);
+									},
+									className: 'btn btn-sm btn-warning float-right'
+								},
+								'Delete'
+							)
+						)
+					)
+				);
+			});
+		}
 
-        //get all the tasks from the backend
+		//get all the tasks from the backend
 
-    }, {
-        key: 'getTasks',
-        value: function getTasks() {
-            var _this4 = this;
+	}, {
+		key: 'getTasks',
+		value: function getTasks() {
+			var _this4 = this;
 
-            axios.get('/tasks').then(function (response) {
-                return _this4.setState({
-                    tasks: [].concat(_toConsumableArray(response.data.tasks))
-                });
-            });
-        }
+			axios.get('/tasks').then(function (response) {
+				return _this4.setState({
+					tasks: [].concat(_toConsumableArray(response.data.tasks))
+				});
+			});
+		}
 
-        // react lifecycle method
+		// react lifecycle method
 
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.getTasks();
-        }
+	}, {
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.getTasks();
+		}
 
-        // handle delete
+		// handle delete
 
-    }, {
-        key: 'handleDelete',
-        value: function handleDelete(id) {
-            // remove from local state
-            var isNotId = function isNotId(task) {
-                return task.id !== id;
-            };
-            var updatedTasks = this.state.tasks.filter(isNotId);
-            this.setState({ tasks: updatedTasks });
-            // make delete request to backend
-            axios.delete('/tasks/' + id);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'div',
-                { className: 'container' },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'div',
-                    { className: 'row justify-content-center' },
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        'div',
-                        { className: 'col-md-8' },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                            'div',
-                            { className: 'card' },
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'card-header' },
-                                'Example Component'
-                            ),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                'div',
-                                { className: 'card-body' },
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                    'form',
-                                    { onSubmit: this.handleSubmit },
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'div',
-                                        { className: 'form-group' },
-                                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
-                                            onChange: this.handleChange,
-                                            value: this.state.name,
-                                            className: 'form-control',
-                                            rows: '5',
-                                            maxLength: '255',
-                                            placeholder: 'Create a new task',
-                                            required: true
-                                        })
-                                    ),
-                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                                        'button',
-                                        { type: 'submit', className: 'btn btn-primary' },
-                                        'Create Task'
-                                    )
-                                ),
-                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
-                                this.renderTasks()
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
+	}, {
+		key: 'handleDelete',
+		value: function handleDelete(id) {
+			// remove from local state
+			var isNotId = function isNotId(task) {
+				return task.id !== id;
+			};
+			var updatedTasks = this.state.tasks.filter(isNotId);
+			this.setState({ tasks: updatedTasks });
+			// make delete request to backend
+			axios.delete('/tasks/' + id);
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+				'div',
+				{ className: 'container' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row justify-content-center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-md-8' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'card' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'card-header' },
+								'Example Component'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'card-body' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'form',
+									{ onSubmit: this.handleSubmit },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+											onChange: this.handleChange,
+											value: this.state.name,
+											className: 'form-control',
+											rows: '5',
+											maxLength: '255',
+											placeholder: 'Create a new task',
+											required: true
+										})
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'button',
+										{ type: 'submit', className: 'btn btn-primary' },
+										'Create Task'
+									)
+								),
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+								this.renderTasks()
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
 
-    return App;
+	return App;
 }(__WEBPACK_IMPORTED_MODULE_0_react__["Component"]);
 
 /* harmony default export */ __webpack_exports__["a"] = (App);
@@ -60027,7 +60028,10 @@ module.exports = hoistNonReactStatics;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(76);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60037,22 +60041,129 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
+
 var TaskEdit = function (_Component) {
 	_inherits(TaskEdit, _Component);
 
-	function TaskEdit() {
+	function TaskEdit(props) {
 		_classCallCheck(this, TaskEdit);
 
-		return _possibleConstructorReturn(this, (TaskEdit.__proto__ || Object.getPrototypeOf(TaskEdit)).apply(this, arguments));
+		var _this = _possibleConstructorReturn(this, (TaskEdit.__proto__ || Object.getPrototypeOf(TaskEdit)).call(this, props));
+
+		_this.state = {
+			name: '',
+			task: []
+		};
+		// bind
+		_this.handleChange = _this.handleChange.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
+		return _this;
 	}
 
+	// handle change
+
+
 	_createClass(TaskEdit, [{
+		key: 'handleChange',
+		value: function handleChange(e) {
+			this.setState({
+				name: e.target.value
+			});
+			// console.log(e.target.value);
+		}
+
+		//handle submit
+
+	}, {
+		key: 'handleSubmit',
+		value: function handleSubmit(e) {
+			var _this2 = this;
+
+			e.preventDefault();
+			axios.post('/tasks', {
+				name: this.state.name
+			}).then(function (response) {
+				// console.log('from handle submit ', response);
+				// set state
+				_this2.setState({
+					tasks: [response.data].concat(_toConsumableArray(_this2.state.tasks)),
+					name: ''
+				});
+			});
+		}
+
+		//get all the tasks from the backend
+
+	}, {
+		key: 'getTasks',
+		value: function getTasks() {
+			var _this3 = this;
+
+			axios.get('/tasks/' + this.props.match.params.id + '/edit').then(function (response) {
+				return _this3.setState({
+					task: response.data.task,
+					name: response.data.task.name
+				});
+			});
+		}
+
+		// react lifecycle method
+
+	}, {
+		key: 'componentWillMount',
+		value: function componentWillMount() {
+			this.getTasks();
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			console.log(this.props.match.params.id);
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-				'h2',
-				null,
-				'This is the task edit page.'
+				'div',
+				{ className: 'container' },
+				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'div',
+					{ className: 'row justify-content-center' },
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+						'div',
+						{ className: 'col-md-8' },
+						__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+							'div',
+							{ className: 'card' },
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'card-header' },
+								'Example Component'
+							),
+							__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+								'div',
+								{ className: 'card-body' },
+								__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+									'form',
+									{ onSubmit: this.handleSubmit },
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'div',
+										{ className: 'form-group' },
+										__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('textarea', {
+											onChange: this.handleChange,
+											value: this.state.name,
+											className: 'form-control',
+											rows: '5',
+											maxLength: '255',
+											placeholder: 'Create a new task',
+											required: true
+										})
+									),
+									__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+										'button',
+										{ type: 'submit', className: 'btn btn-primary' },
+										'Update Task'
+									)
+								)
+							)
+						)
+					)
+				)
 			);
 		}
 	}]);
